@@ -75,7 +75,7 @@ function onWorkerMessage (e) {
 if (!window.Worker) {
     console.log('Web Worker API not supported');
     // load index in main thread
-    $.getScript(base_url + "/search/worker.js").done(function () {
+    $.getScript(base_url + "/js/worker.js").done(function () {
         console.log('Loaded worker');
         init();
         window.postMessage = function (msg) {
@@ -86,7 +86,7 @@ if (!window.Worker) {
     });
 } else {
     // Wrap search in a web worker
-    var searchWorker = new Worker(base_url + "/search/worker.js");
+    var searchWorker = new Worker(base_url + "/js/worker.js");
     searchWorker.postMessage({init: true});
     searchWorker.onmessage = onWorkerMessage;
 }
