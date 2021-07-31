@@ -90,9 +90,9 @@ function onScriptsLoaded () {
 function init () {
   var oReq = new XMLHttpRequest();
   oReq.addEventListener("load", onJSONLoaded);
-  var index_path = base_path + '/search_index.json';
+  var index_path = base_path + '/index.json';
   if( 'function' === typeof importScripts ){
-      index_path = 'search_index.json';
+      index_path = 'index.json';
   }
   oReq.open("GET", index_path);
   oReq.send();
